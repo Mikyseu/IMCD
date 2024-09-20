@@ -1,3 +1,4 @@
+// pages/register.js
 import Head from 'next/head';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -23,8 +24,8 @@ export default function Register() {
     e.preventDefault();
     // Aquí puedes manejar la lógica de envío del formulario, como enviar los datos a una API.
     console.log('Datos del formulario:', formData);
-    // Suponiendo que el registro es exitoso, redirigimos a form.js
-    router.push('/form');
+    // Redirige a corner1 después del registro
+    router.push('/corner1');
   };
 
   return (

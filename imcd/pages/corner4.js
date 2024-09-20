@@ -1,12 +1,15 @@
+// pages/corner1.js
 import Head from 'next/head';
 import { useState } from 'react';
-import styles from '../styles/Form.module.css';
+import { useRouter } from 'next/router';
+import styles from '../styles/Corner.module.css';
 
-export default function ProductForm() {
+export default function Corner4() {
   const [selectedOptions, setSelectedOptions] = useState({
     option1: false,
     option2: false,
   });
+  const router = useRouter();
 
   const handleCheckboxChange = e => {
     const { name, checked } = e.target;
@@ -18,20 +21,32 @@ export default function ProductForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // Aquí puedes manejar la lógica de envío del formulario, como enviar los datos seleccionados a una API.
+    // Per conectar a una bd
     console.log('Opciones seleccionadas:', selectedOptions);
+  };
+
+  const handleBack = () => {
+    router.push('/list');
   };
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Select Product Options</title>
-        <meta name="description" content="Select your product options" />
+        <title>Corner 1 - Product Options</title>
+        <meta
+          name="description"
+          content="This is corner 1 with product options"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <button className={styles.backButton} onClick={handleBack}>
+        Back to List
+      </button>
+
       <main className={styles.main}>
-        <h1 className={styles.title}>Product Options</h1>
+        <h1 className={styles.title}>Welcome to Corner 1</h1>
+        <p className={styles.description}>Select your product options below:</p>
 
         <form className={styles.form} onSubmit={handleSubmit}>
           <h2 className={styles.productTitle}>Your Product</h2>
